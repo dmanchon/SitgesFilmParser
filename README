@@ -4,14 +4,13 @@ Parsing HTML data with enlive and then save it in Sqlite DB in order to allow co
 
 ## Usage
 
-(cd $ROOT)
+Tool to download and manipulate database of sitges festival movies.
 
-mkdir -p db
-lein repl
-(load "sitges/core")
-(in-ns 'sitges.core)
-(sql/create-db)
-(-main)
+Options
+  --show, -s      Prints databse                                    
+  --populate, -p  Download movie information and populate database. 
+  --drop, -d      Drops database and create a new one.     
+
 
 ## License
 
