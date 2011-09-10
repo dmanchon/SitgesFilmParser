@@ -1,0 +1,20 @@
+# sitges
+
+Parsing HTML data with enlive and then save it in Sqlite DB in order to allow complex querying
+
+## Usage
+
+(cd $ROOT)
+
+mkdir -p db
+lein repl
+(load "sitges/core")
+(in-ns 'sitges.core)
+(sql/create-db)
+(-main)
+
+## License
+
+Copyright (C) 2011 FIXME
+
+Distributed under the Eclipse Public License, the same as Clojure.
