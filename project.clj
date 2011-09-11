@@ -11,5 +11,4 @@
 		     [lein-ring "0.4.5"]
 		     [ring-serve "0.1.0"]]
   :source-path "src"
-  :main sitges.core
-  :ring {:handler sitges.route/web-app})
+  :main sitges.core)

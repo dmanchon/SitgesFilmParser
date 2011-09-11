@@ -1,3 +1,4 @@
 classes
 lib
 db/sitges.sqlite3
+*.jar

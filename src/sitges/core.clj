@@ -67,6 +67,7 @@
     [[show? s? "Prints databse"]
      [populate? p? "Download movie information and populate database."]
      [drop? d? "Drops database and create a new one."]
+     [web? w? "Start web server at startup"]
      remaining]
     (println "Festival Internacional de Cinema de Sitges 2011")
     (if (= drop? true)
@@ -86,5 +87,8 @@
       	    (println (:title movie) " | "
 		     (:country movie) " | "
 		     (:director movie) " | "
-		     (map :teather (get-shows (:id movie))))))))
+		     (map :teather (get-shows (:id movie))))))
+
+    (if (= web? true)
+      (route/start-server))))
 

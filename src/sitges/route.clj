@@ -14,4 +14,10 @@
 (def web-app
      (-> main-routes))
 
-(def server (run-jetty #'web-app {:port 8080 :join? false}))
+(defn start-server []
+  (do
+    (defonce server (run-jetty #'web-app {:port 8080 :join? false}))
+    (.start server)))
+
+(defn stop-server []
+  (.stop server))
