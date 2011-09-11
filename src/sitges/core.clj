@@ -40,7 +40,7 @@
 	    (download-show page))))
 
 (defn add-to-db [movie]
-  (do 
+  (do
     (sql/add-movie movie)
     (doseq [show (:show movie)] (do
 				  (sql/add-show show)
@@ -77,7 +77,8 @@
       (doseq [link (parse/links (fetch-url *base-url*))]
 	(do
 	  (let [movie (download-movie-data link)]
-	    (add-to-db movie)))))
+	    (add-to-db movie)
+	    (println "Fetching " (:title movie))))))
 
     (if (= show? true)
       (doseq [movie (get-movies)]
