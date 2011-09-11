@@ -5,6 +5,7 @@
   (:use clojure.contrib.command-line)
   (:require [net.cgrand.enlive-html :as html]
 	    [sitges.parser :as parse]
+	    [sitges.route :as route]
 	    [sitges.sqlite :as sql]
 	    [clojure.contrib.string :as str]))
 
