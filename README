@@ -11,6 +11,23 @@ Options
   --populate, -p  Download movie information and populate database. 
   --drop, -d      Drops database and create a new one.     
 
+## Build
+
+lein deps
+lein compile
+lein run --populate
+lein run --show
+
+## Interactive design (Emacs+Swank)
+
+lein swank
+
+(inside emacs) 
+M-x slime-connect
+> (load "sitges/core")
+> (in-ns 'sitges.core)
+> (-main "--show")
+
 
 ## License
 
