@@ -5,9 +5,17 @@
 	    [net.cgrand.enlive-html :as html]
 	    [compojure.handler :as handler]))
 
+
+
+(html/deftemplate index "sitges/template.html"
+  [ctxt]
+  [:p#message] (html/content (:message ctxt)))
+
+
 (defroutes main-routes
-  (GET "/" [] "<html><h1>Hello</h1></html>")
-  (route/files "/" {:root "public"})
+  (GET "/" [] (index {}))
+  (GET "/change/:msg" [msg] (index {:message (str "we change the message to " msg)}))
+  (route/files "/" {:root "resources/www"})
   (route/resources "/")
   (route/not-found "Page not found"))
 
