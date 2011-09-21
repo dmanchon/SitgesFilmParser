@@ -11,6 +11,36 @@
   [ctxt]
   [:p#message] (html/content (:message ctxt)))
 
+(def *dummy-context*
+     {:title "Enlive Template2 Tutorial"
+      :sections [{:title "Clojure"
+                  :links [{:text "Macros"
+                           :href "http://www.clojure.org/macros"}
+                          {:text "Multimethods & Hierarchies"
+                           :href "http://www.clojure.org/multimethods"}]}
+                 {:title "Compojure"
+                  :links [{:text "Requests"
+                           :href "http://www.compojure.org/docs/requests"}
+                          {:text "Middleware"
+                           :href "http://www.compojure.org/docs/middleware"}]}
+                 {:title "Clojars"
+                  :links [{:text "Clutch"
+                           :href "http://clojars.org/org.clojars.ato/clutch"}
+                          {:text "JOGL2"
+                           :href "http://clojars.org/jogl2"}]}
+                 {:title "Enlive"
+                  :links [{:text "Getting Started"
+                           :href "http://wiki.github.com/cgrand/enlive/getting-started"}
+                          {:text "Syntax"
+                           :href "http://enlive.cgrand.net/syntax.html"}]}]})
+
+(def *link-sel* [[:.content (html/nth-of-type 1)] :> (html/nth-child 1)])
+
+(html/defsnippet link-model "sitges/template2.html" *link-sel*
+  [{text :text href :href}] 
+  [:a] (html/do-> 
+        (html/content text) 
+        (html/set-attr :href href)))
 
 (defroutes main-routes
   (GET "/" [] (index {}))

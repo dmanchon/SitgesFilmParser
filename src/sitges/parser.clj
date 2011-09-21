@@ -29,9 +29,9 @@
   
 (defn country [page]
   (let [selector [:p :strong]
-	filter #(html/text %)
-	s (first (map filter (html/select page selector)))]
-    (str/rtrim (first (str/split #"\." s )))))
+	filter #(html/text %)]
+    (when-let [s (first (map filter (html/select page selector)))]
+      (str/rtrim (first (str/split #"\." s ))))))
 
 (defn teather [page]
   (let [selector [:tr.table_tr_1]

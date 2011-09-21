@@ -78,6 +78,7 @@
     (if (= populate? true)
       (doseq [link (parse/links (fetch-url *base-url*))]
 	(do
+	  (println "Downloading " link)
 	  (let [movie (download-movie-data link)]
 	    (add-to-db movie)
 	    (println "Fetching " (:title movie))))))
