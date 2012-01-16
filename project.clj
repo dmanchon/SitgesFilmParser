@@ -7,7 +7,7 @@
                  [ring "0.2.5"]
 		 [compojure "0.6.4"]
                  [net.cgrand/moustache "1.0.0-SNAPSHOT"]]
-  :dev-dependencies [[swank-clojure "1.3.0-SNAPSHOT"]
+  :dev-dependencies [[swank-clojure "1.3.2"]
 		     [lein-ring "0.4.5"]
 		     [ring-serve "0.1.0"]]
   :source-path "src"
